@@ -29,6 +29,7 @@ class WelcomeScreen extends StatelessWidget {
     const studentName = 'Josue';
     const pendingTasks = 100;
     const courseName = 'Desarrollo de aplicaciones móviles';
+    const motivationalMessage = 'Organiza tus tareas y alcanza tus metas.';
 
     return Scaffold(
       appBar: AppBar(
@@ -40,12 +41,14 @@ class WelcomeScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Icon(Icons.check_circle_outline, size: 56),
+            const Icon(Icons.task_alt, size: 56),
             const SizedBox(height: 24),
             Text(
               '¡Hola, $studentName!',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
+            const SizedBox(height: 12),
+            const Text(motivationalMessage),
             const SizedBox(height: 12),
             Text('Bienvenido/a a $courseName.'),
             const SizedBox(height: 32),
