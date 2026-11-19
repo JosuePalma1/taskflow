@@ -8,10 +8,11 @@ void main() {
   testWidgets('muestra la lista y el detalle de una tarea', (tester) async {
     await tester.pumpWidget(
       ChangeNotifierProvider(
-        create: (_) => TasksViewModel(LocalTaskRepository()),
+        create: (_) => TasksViewModel(LocalTaskRepository())..loadTasks(),
         child: const TaskFlowApp(),
       ),
     );
+    await tester.pumpAndSettle();
 
     expect(find.text('Mis tareas'), findsOneWidget);
     expect(find.text('Especificar requisitos de TaskFlow'), findsOneWidget);

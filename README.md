@@ -38,3 +38,11 @@ DELETE /tasks/:id eliminar tarea
 
 La API concreta se elegirá después. Estas rutas son requisitos, no
 direcciones de un servidor ya conectado.
+
+### API de tareas
+
+TaskFlow consulta `GET https://jsonplaceholder.typicode.com/todos?userId=2` mediante HTTPS y Dio. El par?metro `userId` filtra las tareas del usuario seleccionado; actualmente se usa **2**, configurado en `TaskApiService`.
+
+La respuesta contiene `userId`, `id`, `title` y `completed`. `Task.fromJson` transforma `completed` en `isCompleted` y completa los campos ausentes con `Sin descripci?n (API)` y `Sin prioridad (API)`.
+
+El servicio obtiene y convierte los datos de forma as?ncrona; el repositorio los entrega al ViewModel, que actualiza las pantallas. Marcar una tarea como completada o pendiente solo cambia el estado local en memoria: no se env?a a la API y se pierde al volver a cargar las tareas.

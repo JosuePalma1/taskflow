@@ -48,7 +48,7 @@ class LocalTaskRepository implements TaskRepository {
   ];
 
   @override
-  List<Task> getTasks() => List.unmodifiable(_tasks);
+  Future<List<Task>> getTasks() async => List.unmodifiable(_tasks);
 
   @override
   void save(Task task) {
